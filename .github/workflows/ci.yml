@@ -28,4 +28,4 @@ jobs:
       - name: Smoke test record sheet generation
         run: |
           python -m labbook -i examples/experiments.csv -o smoke.html --rows 5
-          python -c "print(open('smoke.html', encoding='utf-8').read().count('class=\"sheet\"'))"
+          python -c "text = open('smoke.html', encoding='utf-8').read(); marker = 'class=' + chr(34) + 'sheet' + chr(34); assert text.count(marker) == 4; print('ok')"
